@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from app.models import *
-from django.views.generic import ListView,DetailView,TemplateView,CreateView,UpdateView
+from django.views.generic import ListView,DetailView,TemplateView,CreateView,UpdateView,DeleteView
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 # Create your views here.
 
 class Home(TemplateView):
@@ -32,3 +33,8 @@ class SchoolCreate(CreateView):
 class SchoolUpdate(UpdateView):
     model=School
     fields='__all__'
+
+class SchoolDelete(DeleteView):
+    model=School
+    context_object_name='schoolobj'
+    success_url=reverse_lazy('SchoolList')

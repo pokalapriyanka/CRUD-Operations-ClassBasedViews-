@@ -28,5 +28,6 @@ urlpatterns = [
 
     #Here dealing with particular object that's why we are using Dynamic URL Mapping
     re_path('^update/(?P<pk>\d+)/',SchoolUpdate.as_view(),name='SchoolUpdate'),#Dynamic URL Mapping(Select Model Instance)
+    re_path('^delete/(?P<pk>\d+)/',SchoolDelete.as_view(),name='SchoolDelete'),
     re_path('(?P<pk>\d+)/',SchoolDetail.as_view(),name='detail'),#Dynamic URL Mapping(Select Model Instance)
 ]
